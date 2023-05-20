@@ -2,8 +2,8 @@ res={}
 import math
 def getmarks():
     d=int(input("enter description exam marks :"))
-    a=int(input("enter Assignment marks :"))
     o=int(input("enter Objective(online) marks :"))
+    a=int(input("enter Assignment marks :"))
     return d+a+o
 n=True
 while n>0:
@@ -17,9 +17,9 @@ while n>0:
     n=int(input())
     if n==1:
         sub=input("enter the subject name :")
-        print("\nDo you know the total maks(descriptive+Assignment+objective)")
+        print("\nDo you know the total marks(descriptive+Assignment+objective)")
         y=input("enter 'YES' or  'NO' :")
-        if y=='NO' or y=='no':
+        if y=='NO' or y=='no' or y=='No':
             s1=getmarks()
         else:
             s1=int(input("enter the marks :"))
@@ -33,14 +33,14 @@ while n>0:
         if sub in res.keys():
             print(f"\n{sub} marks are already saved")
             c=input("Do you want to change it (YES/NO) :")
-            if c=='YES'or c=='yes':
+            if c=='YES'or c=='yes' or c=='Yes':
                 pass
-            elif c=='NO' or c=='no': 
+            elif c=='NO' or c=='no' or c=='No': 
                 continue
             pass
         print("\nDo you know the total maks(descriptive+Assignment+objective)")
         x=input("enter 'YES' if u have else enter 'NO' :")
-        if x=='YES' or x=='yes':
+        if x=='YES' or x=='yes' or x=='Yes':
             m1=int(input("enter mid 1 marks :"))
             m2=int(input("enter mid 2 marks :"))
         else:
@@ -69,13 +69,18 @@ while n>0:
         
         if x=="all":
             for i in res.keys():
-                print(f"{i} : ",res[i])
+                print(i,"\t: ",end=' ')
+                for j in res[i]:
+                    print(f"{j} - {res[i][j]}",end='   ')
+                print()
         else:
-            print(f"{x} : ",res[x])
+            print(x,"\t: ",end=' ')
+            for j in res[x]:
+                print(f"{j} - {res[i][j]}",end='   ')
     elif n==4:
         print("Are you sure to delete the saved marks ?")
         y=input("enter (YES/NO) :")
-        if y=='YES' or 'yes':
+        if y=='YES' or 'yes' or y=='Yes':
             res.clear()
         else:
             continue
